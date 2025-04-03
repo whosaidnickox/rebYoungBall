@@ -30,6 +30,7 @@ struct MainMenuView: View {
                             showSettings = true
                         }
                     )
+                    .padding(.top, DeviceSize.isSuperSmallDevice ? 20 : 0)
                     
                     Spacer()
                     
@@ -43,6 +44,7 @@ struct MainMenuView: View {
                     
                     
                     Button(action: {
+                        print(UIScreen.main.bounds.height)
                         showLevelPicker = true
                     }) {
                         Text("START")
@@ -54,7 +56,7 @@ struct MainMenuView: View {
                             .cornerRadius(16)
                             .shadow(radius: 5)
                     }
-                    .padding(.bottom, 36)
+                    .padding(.bottom, DeviceSize.isSuperSmallDevice ? 116 : 36)
                     .padding(.horizontal, 24)
 
                 }
@@ -81,9 +83,4 @@ struct MainMenuView: View {
 #Preview {
     MainMenuView()
         .environmentObject(GameViewModel())
-}
-extension View {
-    func pulivra() -> some View {
-        self.modifier(Ohriswk())
-    }
 }

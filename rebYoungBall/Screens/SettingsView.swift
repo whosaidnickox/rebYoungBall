@@ -29,6 +29,7 @@ struct SettingsView: View {
                         dismiss()
                     }
                 )
+                .padding(.top, DeviceSize.isSuperSmallDevice ? 20 : 0)
                 
                 ZStack {
                     VStack(alignment: .leading, spacing: 32) {
@@ -62,7 +63,7 @@ struct SettingsView: View {
                                     message: Text("Check out this awesome game!")
                                 ) {
                                     Text("Share this App")
-                                        .font(.custom(.jaro, size: 18))
+                                        .font(.custom(.jaro, size: DeviceSize.fontSize(original: 18)))
                                         .padding()
                                         .frame(maxWidth: .infinity)
                                         .background(.white)
@@ -217,7 +218,7 @@ private struct SettingsButtonView: View {
             action()
         }) {
             Text(text)
-                .font(.custom(.jaro, size: 18))
+                .font(.custom(.jaro, size: DeviceSize.fontSize(original: 18)))
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(.white)

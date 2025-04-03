@@ -34,6 +34,7 @@ struct GameContentView: View {
                         performGameRestart()
                     }
                 )
+                .padding(.top, DeviceSize.isSuperSmallDevice ? 20 : 0)
                 
                 
                 GameView(viewModel: viewModel)
@@ -51,7 +52,8 @@ struct GameContentView: View {
                 
                 
                 
-                 .padding(.bottom, 20)
+                 .padding(.bottom, DeviceSize.isSuperSmallDevice ? 120 : 20)
+
             }
             
             
@@ -165,5 +167,29 @@ struct ViewRefKey: PreferenceKey {
 
 #Preview {
     GameContentView()
-        .environmentObject(GameViewModel(level: 14))
+        .environmentObject(GameViewModel(level: 16))
+}
+class AppDelegate: NSObject, UIApplicationDelegate {
+    static var asiuqzoptqxbt = UIInterfaceOrientationMask.portrait {
+        didSet {
+            if #available(iOS 16.0, *) {
+                UIApplication.shared.connectedScenes.forEach { scene in
+                    if let windowScene = scene as? UIWindowScene {
+                        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: asiuqzoptqxbt))
+                    }
+                }
+                UIViewController.attemptRotationToDeviceOrientation()
+            } else {
+                if asiuqzoptqxbt == .landscape {
+                    UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+                } else {
+                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+                }
+            }
+        }
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.asiuqzoptqxbt
+    }
 }

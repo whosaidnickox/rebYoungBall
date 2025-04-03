@@ -178,6 +178,8 @@ private struct Preview_GameContentView: View {
                         }
                     }
                 )
+                .padding(.top, DeviceSize.isSuperSmallDevice ? 20 : 0)
+
                 
                 Spacer()
                 

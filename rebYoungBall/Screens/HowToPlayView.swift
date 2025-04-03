@@ -23,6 +23,8 @@ struct HowToPlayView: View {
                         dismiss()
                     }
                 )
+                .padding(.top, DeviceSize.isSuperSmallDevice ? 20 : 0)
+
                 
                 ZStack {
                         VStack(alignment: .leading, spacing: 32) {

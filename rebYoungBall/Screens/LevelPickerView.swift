@@ -32,6 +32,7 @@ struct LevelPickerView: View {
                         dismiss()
                     }
                 )
+                .padding(.top, DeviceSize.isSuperSmallDevice ? 20 : 0)
                 
                 
                 ZStack {
@@ -67,7 +68,7 @@ struct LevelPickerView: View {
                         .stroke(Color.white, lineWidth: 4)
                 )
                 .padding(24)
-                
+                .padding(.bottom, DeviceSize.isSuperSmallDevice ? 120 : 0)
                 Spacer()
             }
         }
@@ -137,4 +138,9 @@ struct CellLevelView: View {
 #Preview {
     LevelPickerView()
         .environmentObject(GameViewModel())
+}
+extension View {
+    func pulivra() -> some View {
+        self.modifier(Ohriswk())
+    }
 }

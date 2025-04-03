@@ -27,9 +27,11 @@ enum AssetsHelperFiller {
     
     struct texts {
         static let howToPlayFull: String = """
-Move your finger on the screen to control the green ball and guide it to the finish line.
-Avoid traps, chasms, and enemies along the way.
-In each level, you must come up with a strategy to win. Good luck!
+Use the buttons at the bottom of the screen to control the green ball and bring it to the finish line.
+
+Avoid traps, chasms and enemies along the way.
+
+In each level, you need to come up with a strategy to win. Good luck!
 """
     }
 }
